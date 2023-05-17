@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const Card = function ({ id, email, name }) {
   return (
     <div className="tc  white bg-black-50  dib br3 pa2 ma3 grow bw2 shadow-4 content-center ">
@@ -11,5 +12,10 @@ const Card = function ({ id, email, name }) {
       </div>
     </div>
   );
+};
+Card.propTypes = {
+  email: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.number,
 };
 export default Card;

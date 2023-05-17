@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const Scroll = ({ children }) => {
   return (
     <div
@@ -9,6 +10,9 @@ const Scroll = ({ children }) => {
       {children}
     </div>
   );
+};
+Scroll.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Scroll;

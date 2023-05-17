@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const SearchBox = ({ searchChange }) => {
   return (
     <div className="pb4 ">
@@ -9,5 +10,9 @@ const SearchBox = ({ searchChange }) => {
       />
     </div>
   );
+};
+
+SearchBox.propTypes = {
+  searchChange: PropTypes.func,
 };
 export default SearchBox;
