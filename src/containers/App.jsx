@@ -1,6 +1,7 @@
-import CardList from "./CardList.jsx";
-import SearchBox from "./SearchBox.jsx";
+import CardList from "../components/CardList.jsx";
+import SearchBox from "../components/SearchBox.jsx";
 import { Component } from "react";
+import Scroll from "../components/Scroll.jsx";
 
 class App extends Component {
   constructor() {
@@ -38,7 +39,9 @@ class App extends Component {
         <div className="tc">
           <h1 className="tc f-5 white ">AiFriends</h1>
           <SearchBox searchChange={this.onSearchChange} />
-          <CardList robots={filteredRobots} />
+          <Scroll>
+            <CardList robots={filteredRobots} />
+          </Scroll>
         </div>
       );
     }
