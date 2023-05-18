@@ -7,6 +7,7 @@ import Scroll from '../components/Scroll.jsx';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
 import { requestRobots, setSearchField } from '../actions/actions.js';
+import Header from '../components/Header.jsx';
 
 const mapStateToProps = state => {
   return {
@@ -38,11 +39,12 @@ function App(props) {
 
   return !isPending ? (
     <div className="tc">
+      <Header />
       <h2 className="red">Loading...</h2>;
     </div>
   ) : (
     <section className="tc">
-      <h1 className="tc f-2 white ">AiFriends</h1>
+      <Header />
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
         <ErrorBoundary>

@@ -1,6 +1,7 @@
 import Card from './Card.jsx';
 import PropTypes from 'prop-types';
 const CardList = ({ robots }) => {
+  console.log('CardList');
   return (
     <div className="tc">
       {robots.map((item, i) => (
