@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 const Scroll = ({ children }) => {
   return (
     <div
       style={{
-        overflow: "scroll",
-        border: "1px solid gray",
+        overflowY: 'scroll',
+        border: '1px solid gray',
       }}
     >
       {children}

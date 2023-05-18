@@ -16,11 +16,9 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(to right,#001d3d,#7209b7);
+  background: linear-gradient(to right,#001d3d,#001b44);
 
 }
 

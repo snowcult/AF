@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 const SearchBox = ({ searchChange }) => {
   return (
-    <div className="pb4 ">
+    <div className="pb3 ">
       <input
         type="search"
         placeholder="Search Robots"

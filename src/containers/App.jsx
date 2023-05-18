@@ -1,47 +1,65 @@
-import CardList from "../components/CardList.jsx";
-import SearchBox from "../components/SearchBox.jsx";
-import { useState, useEffect } from "react";
-import Scroll from "../components/Scroll.jsx";
-import ErrorBoundary from "../components/ErrorBoundary.jsx";
+import { connect } from 'react-redux';
+import CardList from '../components/CardList.jsx';
+import SearchBox from '../components/SearchBox.jsx';
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import Scroll from '../components/Scroll.jsx';
+import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
-function App() {
-  const [robots, setRobots] = useState([]);
-  const [searchField, setSeField] = useState("");
+import { requestRobots, setSearchField } from '../actions/actions.js';
 
+const mapStateToProps = state => {
+  return {
+    searchField: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    error: state.requestRobots.error,
+    isPending: state.requestRobots.isPending,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchChange: event => {
+      return dispatch(setSearchField(event.target.value));
+    },
+    onRequestRobots: () => dispatch(requestRobots()),
+  };
+};
+
+function App(props) {
+  const { searchField, onSearchChange, robots, isPending } = props;
   useEffect(() => {
-    return async function fetchData() {
-      try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/users");
-        const data = await res.json();
-        setRobots(data);
-      } catch (e) {
-        console.error(e.message);
-      }
-    };
+    props.onRequestRobots();
   }, []);
 
-  const onSearchChange = (e) => {
-    setSeField(e.target.value.toLowerCase());
-  };
-
-  const filteredRobots = robots.filter((robot) => {
+  const filteredRobots = robots.filter(robot => {
     return robot.name.toLowerCase().includes(searchField);
   });
 
-  return !robots.length ? (
+  return !isPending ? (
     <div className="tc">
       <h2 className="red">Loading...</h2>;
     </div>
   ) : (
-    <div className="tc">
-      <h1 className="tc f-5 white ">AiFriends</h1>
+    <section className="tc">
+      <h1 className="tc f-2 white ">AiFriends</h1>
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
         <ErrorBoundary>
           <CardList robots={filteredRobots} />
         </ErrorBoundary>
       </Scroll>
-    </div>
+    </section>
   );
 }
-export default App;
+
+App.propTypes = {
+  store: PropTypes.object,
+  onSearchChange: PropTypes.func,
+  searchField: PropTypes.string,
+  onRequestRobots: PropTypes.func,
+  robots: PropTypes.array,
+  isPending: PropTypes.bool,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
