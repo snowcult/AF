@@ -6,11 +6,12 @@ export default defineConfig({
   plugins: [react(), pwaConfig],
   publicDir: 'public',
   build: {
-    outDir: 'dist/AF',
+    outDir: 'dist',
     emptyOutDir: true,
     sourcemap: true,
   },
   server: {
     port: 3000,
   },
+  base: '/AF/',
 });
