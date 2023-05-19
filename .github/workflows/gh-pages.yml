@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
@@ -6,26 +6,29 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
-          cache: 'pnpm'
+          node-version: 14
 
-      - name: Install dependencies
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install Dependencies
         run: pnpm install
 
-      - name: Build for production
-        run: pnpm build
+      - name: Build App
+        run: pnpm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          branch: gh-pages
+          folder: dist

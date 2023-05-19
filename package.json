@@ -2,7 +2,7 @@
   "name": "aifriends",
   "private": true,
   "version": "0.0.0",
-  "type": "module",g
+  "type": "module",
   "homepage": "",
   "scripts": {
     "dev": "vite --host",
