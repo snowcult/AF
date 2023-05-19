@@ -27,7 +27,7 @@ const store = configureStore({
 ReactDOM.createRoot(document.querySelector('#root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/AF">
+      <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<App />} />
