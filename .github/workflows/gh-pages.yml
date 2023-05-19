@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 17
+          node-version: 16
 
       - name: Install pnpm
         run: npm install -g pnpm
@@ -26,10 +26,12 @@ jobs:
 
       - name: Build App
         run: pnpm run build
-        
+
+      - name: Fetch and Merge Changes from main
+        run: git fetch origin main:main && git merge main --no-edit
+
       - name: Check Build Output
         run: ls dist/index.js
-
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
