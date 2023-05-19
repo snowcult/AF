@@ -2,12 +2,11 @@
   "name": "aifriends",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "module",g
   "homepage": "",
   "scripts": {
-    "deploy": "gh-pages -d build",
-    "dev": "vite  --host",
-    "build": "vite build",
+    "dev": "vite --host",
+    "build": "vite build --outDir dist",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -35,6 +34,6 @@
     "vite": "^4.3.3"
   },
   "repository": {
-    "url": "https://github.com/snowcult/AF.git"
+    "url": "https://github.com/snowcult/AF"
   }
 }
