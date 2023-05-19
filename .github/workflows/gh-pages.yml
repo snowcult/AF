@@ -27,9 +27,6 @@ jobs:
       - name: Build App
         run: pnpm run build
 
-      - name: Fetch and Merge Changes from main
-        run: git fetch origin main:main && git merge main --no-edit
-
       - name: Check Build Output
         run: ls dist/index.js
 
