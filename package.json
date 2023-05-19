@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "",
+  "homepage": "https://snowcult.github.io/AF/g",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build --outDir dist",
