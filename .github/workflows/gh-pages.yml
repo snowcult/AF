@@ -27,8 +27,6 @@ jobs:
       - name: Build App
         run: pnpm run build
 
-      - name: Check Build Output
-        run: ls dist/index.js
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
