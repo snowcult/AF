@@ -4,6 +4,7 @@ import pwaConfig from './pwa.config.js';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), pwaConfig],
+  publicDir: 'public',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
