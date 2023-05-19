@@ -12,5 +12,8 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  base: '/AF/', // Specify the base URL as your repository name
+  'rollupOptions: {
+      output: {
+        publicPath: '/AF/', // Replace 'YOUR_REPOSITORY_NAME' with your repository name
+      },
 });
