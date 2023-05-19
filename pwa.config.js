@@ -4,7 +4,7 @@ export default VitePWA({
   manifest: {
     name: 'AiFriends',
     short_name: 'AF',
-    start_url: '/',
+    start_url: '/AF/',
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: '#ffffff',

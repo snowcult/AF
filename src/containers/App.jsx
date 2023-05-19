@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import Scroll from '../components/Scroll.jsx';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
-
 import { requestRobots, setSearchField } from '../actions/actions.js';
 import Header from '../components/Header.jsx';
 

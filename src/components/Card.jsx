@@ -5,6 +5,7 @@ const Card = function ({ id, email, name }) {
       <img
         src={`https://robohash.org/${id}?size=220x220&set=set2`}
         alt="robot"
+        style={{ height: '220px', width: '220px', objectFit: 'cover' }}
       />
       <div>
         <h2>{name}</h2>
