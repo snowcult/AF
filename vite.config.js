@@ -8,12 +8,14 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        publicPath: '/AF/', // Replace 'YOUR_REPOSITORY_NAME' with your repository name
+      },
+    },
   },
   server: {
     port: 3000,
   },
-  'rollupOptions: {
-      output: {
-        publicPath: '/AF/', // Replace 'YOUR_REPOSITORY_NAME' with your repository name
-      },
 });
