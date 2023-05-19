@@ -1,31 +1,32 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          cache: 'pnpm'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build for production
-        run: pnpm build
+      - name: Build
+        run: pnpm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./build
+          cname: example.com
+          
+      - name: Set content-type header for JS files
+        uses: dawidd6/action-set-mime@v2
+        with:
+          path: 'build/**/*.js'
+          mime-type: 'application/javascript'
