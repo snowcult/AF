@@ -2,12 +2,12 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -22,11 +22,11 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./dist
           cname: example.com
-          
+
       - name: Set content-type header for JS files
         uses: dawidd6/action-set-mime@v2
         with:
-          path: 'build/**/*.js'
+          path: 'dist/**/*.js'
           mime-type: 'application/javascript'
