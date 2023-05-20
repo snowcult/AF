@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render Header comp 1`] = `
+<div>
+  <h1
+    className="tc f-2 white"
+  >
+    AiFriends
+  </h1>
+</div>
+`;

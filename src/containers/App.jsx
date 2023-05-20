@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import CardList from '../components/CardList.jsx';
-import SearchBox from '../components/SearchBox.jsx';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import Scroll from '../components/Scroll.jsx';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 import { requestRobots, setSearchField } from '../actions/actions.js';
 import Header from '../components/Header.jsx';
+import MainPage from '../components/pages/Mainpage.jsx';
 
 const mapStateToProps = state => {
   return {
@@ -27,40 +26,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 function App(props) {
-  const { searchField, onSearchChange, robots, isPending } = props;
-  useEffect(() => {
-    props.onRequestRobots();
-  }, []);
-
-  const filteredRobots = robots.filter(robot => {
-    return robot.name.toLowerCase().includes(searchField);
-  });
-
-  return !isPending ? (
-    <div className="tc">
-      <Header />
-      <h2 className="red">Loading...</h2>;
-    </div>
-  ) : (
-    <section className="tc">
-      <Header />
-      <SearchBox searchChange={onSearchChange} />
-      <Scroll>
-        <ErrorBoundary>
-          <CardList robots={filteredRobots} />
-        </ErrorBoundary>
-      </Scroll>
-    </section>
-  );
+  return <MainPage {...props} />;
 }
-
-App.propTypes = {
-  store: PropTypes.object,
-  onSearchChange: PropTypes.func,
-  searchField: PropTypes.string,
-  onRequestRobots: PropTypes.func,
-  robots: PropTypes.array,
-  isPending: PropTypes.bool,
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

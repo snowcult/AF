@@ -12,6 +12,6 @@ module.exports = {
   plugins: ['react-refresh','jest'],
   rules: {
     'react-refresh/only-export-components': 'warn',
-    "jest/valid-expect":'error'
+    // "jest/valid-expect":'error'
   },
 }

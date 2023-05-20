@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Card = function ({ id, email, name }) {
   return (
-    <div className="c  white bg-black-50  dib br3 pa2 ma3 grow bw2 shadow-4">
+    <div className="tc  white bg-black-50  dib br3 pa2 ma3 grow bw2 shadow-3">
       <img
         src={`https://robohash.org/${id}?size=220x220&set=set2`}
         alt="robot"
