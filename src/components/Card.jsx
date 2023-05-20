@@ -1,4 +1,6 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+
 const Card = function ({ id, email, name }) {
   return (
     <div className="c  white bg-black-50  dib br3 pa2 ma3 grow bw2 shadow-4">
