@@ -1,6 +1,6 @@
 import React from 'react';
 import CardList from '../CardList.jsx';
-import SearchBox from '../SearchBox.jsx';
+import SearchBox from 'src/components/SearchBox.tsx';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import Scroll from '../Scroll.jsx';

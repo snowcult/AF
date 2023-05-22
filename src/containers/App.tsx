@@ -1,13 +1,18 @@
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import Scroll from '../components/Scroll.jsx';
-import ErrorBoundary from '../components/ErrorBoundary.jsx';
+import { Dispatch } from 'redux';
 import { requestRobots, setSearchField } from '../actions/actions.js';
-import Header from '../components/Header.jsx';
 import MainPage from '../components/pages/Mainpage.jsx';
+import React from 'react';
 
-const mapStateToProps = state => {
+interface IState {
+  searchRobots: { searchField: string };
+  requestRobots: { robots: string[]; error: string; isPending: boolean };
+}
+type dispatchs = {
+  onRequestRobots: () => void;
+};
+
+const mapStateToProps = (state: IState) => {
   return {
     searchField: state.searchRobots.searchField,
     robots: state.requestRobots.robots,
@@ -16,16 +21,16 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    onSearchChange: event => {
+    onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => {
       return dispatch(setSearchField(event.target.value));
     },
     onRequestRobots: () => dispatch(requestRobots()),
   };
 };
 
-function App(props) {
+function App(props: Element) {
   return <MainPage {...props} />;
 }
 

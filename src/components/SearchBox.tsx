@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
+import { ChangeEventHandler } from 'react';
 
-const SearchBox = ({ searchChange }) => {
+type ISearchBoxProps = {
+  searchChange: ChangeEventHandler<HTMLInputElement>;
+};
+const SearchBox = ({ searchChange }: ISearchBoxProps) => {
   console.log('Search box');
   return (
     <div className="pb3 ">

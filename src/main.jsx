@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
-import App from './containers/App.jsx';
+import App from 'src/containers/App.tsx';
 import './index.css';
 import 'tachyons';
 import { searchRobot, requestRobots } from './reducers/reducers.js';

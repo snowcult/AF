@@ -5,11 +5,13 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
-    'plugin:jest/recommended'
+    'plugin:jest/recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  parser:'@typescript-eslint/parser',
+  parserOptions: { project:'./tsconfig.json' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh','jest'],
+  plugins: ['react-refresh','jest','@typescript-eslint'],
   rules: {
     'react-refresh/only-export-components': 'warn',
     // "jest/valid-expect":'error'
