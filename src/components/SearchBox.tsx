@@ -1,5 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { ChangeEventHandler } from 'react';
+import { Input, TextField } from '@mui/material';
 
 type ISearchBoxProps = {
   searchChange: ChangeEventHandler<HTMLInputElement>;
@@ -7,15 +9,13 @@ type ISearchBoxProps = {
 const SearchBox = ({ searchChange }: ISearchBoxProps) => {
   console.log('Search box');
   return (
-    <div className="pb3 ">
-      <input
-        aria-label="search Robot"
-        type="search"
-        placeholder="Search Robots"
-        className="br2  pa2"
-        onChange={searchChange}
-      />
-    </div>
+    <TextField
+      sx={{ margin: '1.5rem', color: 'primary' }}
+      label="Search Robots"
+      InputProps={{ style: { color: 'white' } }}
+      focused
+      onChange={searchChange}
+    ></TextField>
   );
 };
 

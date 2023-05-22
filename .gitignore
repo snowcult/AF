@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 /zsh.exe.stackdump
 .swc
+.env
