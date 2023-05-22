@@ -1,3 +1,4 @@
+import React from 'react';
 import CardList from '../CardList.jsx';
 import SearchBox from '../SearchBox.jsx';
 import PropTypes from 'prop-types';
@@ -12,9 +13,13 @@ function MainPage(props) {
     props.onRequestRobots();
   }, []);
 
-  const filteredRobots = robots.filter(robot => {
-    return robot.name.toLowerCase().includes(searchField);
-  });
+  const filterRobots = robots => {
+    return robots.filter(robot => {
+      return robot.name.toLowerCase().includes(searchField);
+    });
+  };
+
+  const filteredRobots = filterRobots(robots);
   return !isPending ? (
     <div className="tc">
       <Header />
@@ -40,6 +45,7 @@ MainPage.propTypes = {
   onRequestRobots: PropTypes.func,
   robots: PropTypes.array,
   isPending: PropTypes.bool,
+  filterRobots: PropTypes.func,
 };
 
 export default MainPage;

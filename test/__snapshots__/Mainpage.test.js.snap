@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage component renders Main page without errors 1`] = `
+<div
+  className="tc"
+>
+  <Header />
+  <h2
+    className="red"
+  >
+    Loading...
+  </h2>
+  ;
+</div>
+`;
